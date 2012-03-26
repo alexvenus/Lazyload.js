@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+    <title>Lazyload.js</title>
+    
+    <script type="text/javascript" src="view/static/script/Lazyload/Lazyload-0.0.1.js"></script>
+
+    <script language="javascript" type="text/javascript" id="Lazyload.Init">
+
+	// configure Lazyload.js require()-method
+	require().configure({
+        'classpath': 'view/static/script/',  // base path to classes
+        'provider': 'native',                // can be either "native" for pure JS or "jquery" if jQuery is supported
+        'caching': true,                     // cache TRUE = just inlcude once - FALSE = reload on every request
+        'scope': window,                     // the global scope used for generic instanciation
+		'timeout': 1000,                     // the timeout for loading external resources in ms
+        'debug': {                           // controls the output
+            'enabled': true,                    // - enabled OR disabled  
+            'logger': console.log               // - output method/function (logger)
+        }
+	});
+    
+	// Load class "Feedback" from Namespace "Js/Ui/Core" => File "Js/Ui/Core/Feedback.js"
+    // and return an instance with paramters show:true and autoload:false
+	// pass this instance to callback-function
+    require(
+        'Js.Ui.Core.Feedback', 
+    	{'show': true, 'autoload': false}, 
+    	function(feedback){ alert(feedback.getAnbieter().getId()) }
+    );
+
+    </script>
+</head>
+    
+<body class="category-kategorien">
+    <div id="Lazyload" style="width:320px; height:240px; background-color:#eee; border:1px solid #999;">
+        Please wait! An alert() should popup ...
+        
+        <br />
+        <br />
+        <a href="index.html">Home</a>        
+    </div>
+</body>
+</html>
