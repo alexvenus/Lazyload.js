@@ -1,6 +1,6 @@
 # Lazyload.js #
 
-[http://www.phpfluesterer.de/category/projekte/open-source-software-projekte/lazyload.js/](http://www.phpfluesterer.de/category/projekte/open-source-software-projekte/lazyload.js/)
+[http://www.phpfluesterer.de/category/projekte/open-source-software-projekte/lazyload-js-javascript/](http://www.phpfluesterer.de/category/projekte/open-source-software-projekte/lazyload-js-javascript/)
 
 Lazyload.js is a tiny and kept simple "annotation-based-dependency-loader"-framework written in and for JavaScript.
 It's full compatible with jQuery and can make use of it to process DOM-elements. If jQuery isn't available it uses
