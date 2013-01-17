@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="__test"/>
+	<classpathentry kind="src" path="lib"/>
+	<classpathentry excluding="Ui/Core/|Ui/Core/Provider/Feedback/Lib/|Ui/Core/Provider/Feedback/" kind="src" path="view/static/script/Js"/>
+	<classpathentry excluding="Provider/Feedback/Lib/|Provider/Feedback/" kind="src" path="view/static/script/Js/Ui/Core"/>
+	<classpathentry excluding="Lib/" kind="src" path="view/static/script/Js/Ui/Core/Provider/Feedback"/>
+	<classpathentry kind="src" path="view/static/script/Js/Ui/Core/Provider/Feedback/Lib"/>
+	<classpathentry kind="con" path="org.eclipse.wst.jsdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="output" path=""/>
+</classpath>

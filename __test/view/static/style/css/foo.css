@@ -1,0 +1,7 @@
+@import url("__test/view/static/style/css/bar.css");
+
+body {
+    font-family: Arial;
+    font-size: 1em;
+    background-color: #ccc !important;
+}
