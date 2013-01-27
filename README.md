@@ -1,4 +1,5 @@
 # Lazyload.js #
+[![Build Status](https://www.travis-ci.org/clickalicious/Lazyload.js.png?branch=master)](https://www.travis-ci.org/clickalicious/Lazyload.js)
 
 ... brand new, fresh and in shape!
 If you're looking for more detailed information about Lazyload.js you
