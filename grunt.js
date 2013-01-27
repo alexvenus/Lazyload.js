@@ -24,7 +24,7 @@ module.exports = function (grunt) {
             }
         },
         qunit: {
-            files: ['__test/**/*.html']
+            files: ['__test/index.html']
         },
         lint: {
             files: ['grunt.js', '__test/view/**/*.js', '__src/Lazyload.js']
