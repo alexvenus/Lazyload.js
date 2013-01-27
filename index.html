@@ -1,28 +1,38 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Lazyload.js | </title>
+    <title>Lazyload.js | The tiny + powerful loading-framework for JavaScript</title>
 
-    <script src="lib/Lazyload.js" type="text/javascript"></script>
+    <script src="__src/Lazyload.js" type="text/javascript"></script>
 
     <script language="JavaScript" type="text/JavaScript">
 
+        /**
+         * This is a demonstration of a little more complex and nested Lazyload.js usage.
+         *
+         */
+        // require call
         Lazyload.require(
-            '__test/view/static/script/js/basket-0.3.0.js'
-        ).and(
-            '__test/view/static/script/js/jquery-1.8.3.js'
+            '__test/vendor/basket.js/basket-0.3.0.js'
         ).then(
+            // callback success
             function success() {
-                Lazyload.configure({
+                Lazyload.config({
                     loader: window.basket
                 });
 
                 Lazyload.require(
-                    '__test/view/static/script/js/jquery-1.8.3.js'
+                    '//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js'
                 ).and(
                     '__test/view/static/script/js/foo.js'
+                ).then(
+                    // callback success
+                    function() {
+                        $('#foo').html('Hello World!');
+                    }
                 );
             },
+            // callback failure
             function failure(failure) {
                 alert(failure);
             }
@@ -32,5 +42,6 @@
 </head>
 <body>
     &nbsp;
+    <div id="foo">&nbsp;</div>
 </body>
 </html>
