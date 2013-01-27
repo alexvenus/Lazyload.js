@@ -10,6 +10,8 @@ should look either here [github project page](http://clickalicious.github.com/La
 
 **0.0.4**
 
+- Added tag 0.0.4 to git repo source.
+
 - Complete refactoring of the codebase. Optimized the code on speed and
   size. Reduced the complexity and increased the quality of the
   comments while also reducing the amount of comments made.
@@ -17,15 +19,10 @@ should look either here [github project page](http://clickalicious.github.com/La
 - Made loading of external/remote resources possible. Remote resources
   can be treated in the same way like local resources. The only
   exception is that external resources currently can't have any
-  dependencies defined by @files tag within file cause i have no access
-  to source. But this will change soon. I've found a way to load the
-  source from external resources and get access to its source too.
-
-- Removed a first try of revolutionary dependency loading mechanism.
-  This is currently in development (external) and will be readded as
-  soon it is ready for the wild.
-
-- Added tag to git repo source. The Code
+  dependencies defined by @resources tag within file cause i have 
+  currently no access to the source of those resources. But i've found 
+  a way to load the source from external resources and get access to it
+  too.
 
 - Changed build-system to grunt. Added all required files
   (configuration) so you will also be able to build, document, test
@@ -39,7 +36,10 @@ should look either here [github project page](http://clickalicious.github.com/La
 - Fixed comments in source to made the documentation with JSDoc(1|2|3)
   possible.
 
-- Added documentation in JSDoc(3) format to folder ./__doc
+- Added complete documentation in JSDoc(3) format to folder
+  [/__doc](https://github.com/clickalicious/Lazyload.js/blob/master/__doc/)
+  have a look at the documentation and the source. Everythings so fine you 
+  will like to work with
 
 - added this changelog to README.md
 
