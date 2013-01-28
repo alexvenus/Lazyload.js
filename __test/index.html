@@ -27,5 +27,10 @@
     <!-- The tests -->
     <script src="tests.js"></script>
 
+    <!-- explicit call start() as a try to prevent timeout bug from PhantomJS -->
+    <script type="text/javascript">
+        QUnit.start();
+    </script>
+
 </body>
 </html>
