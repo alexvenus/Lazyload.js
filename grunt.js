@@ -67,4 +67,7 @@ module.exports = function (grunt) {
 
     // Default task. -> uglify?
     grunt.registerTask('default', 'lint qunit concat min');
+    
+    // Task for travis
+    grunt.registerTask('travis', 'lint qunit concat min');
 };
