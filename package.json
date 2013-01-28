@@ -1,8 +1,8 @@
 {
-  "name": "jquery-plugin",
-  "version": "0.0.4-ignored",
+  "name": "Lazyload.js",
+  "version": "0.0.4",
   "engines": {
-    "node": ">= 0.6.0"
+    "node": ">= 0.8"
   },
   "scripts": {
     "test": "grunt qunit"
