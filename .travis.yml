@@ -4,10 +4,10 @@ node_js:
 before_install:
   - phantomjs --version
   - npm --version
-  - wget http://phantomjs.googlecode.com/files/phantomjs-1.7.0-linux-i686.tar.bz2
-  - tar -xf phantomjs-1.7.0-linux-i686.tar.bz2
+  - wget http://phantomjs.googlecode.com/files/phantomjs-1.6.1-linux-i686-dynamic.tar.bz2
+  - tar -xf phantomjs-1.6.1-linux-i686-dynamic.tar.bz2
   - sudo rm -rf /usr/local/phantomjs
-  - sudo mv phantomjs-1.7.0-linux-i686 /usr/local/phantomjs
+  - sudo ln -s phantomjs-1.6.1-linux-i686-dynamic/bin/phantomjs /usr/local/phantomjs
   - phantomjs --version
   
 before_script:
