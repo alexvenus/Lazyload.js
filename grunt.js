@@ -29,10 +29,7 @@ module.exports = function (grunt) {
             }
         },
         qunit: {
-            files: ['__test/index.html'],
-            options: {
-                timeout: 20000
-            }
+            files: ['__test/index.html']
         },
         lint: {
             files: [
