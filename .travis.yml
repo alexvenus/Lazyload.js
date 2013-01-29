@@ -6,6 +6,8 @@ before_install:
   
 before_script:
   - sudo npm install -g grunt
+  - sudo npm install -g grunt-contrib
+  - sudo npm install -g grunt-contrib-qunit
   - grunt build
   
 script: grunt travis --verbose
