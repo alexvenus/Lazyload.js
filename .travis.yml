@@ -8,6 +8,7 @@ before_install:
   - tar -xf phantomjs-1.4.1-linux-x86-dynamic.tar.gz
   - sudo rm -rf /usr/local/phantomjs
   - sudo mv phantomjs /usr/local/phantomjs  
+  - phantomjs --version
   
 before_script:
   - sudo npm install -g grunt
