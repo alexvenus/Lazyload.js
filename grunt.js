@@ -31,7 +31,7 @@ module.exports = function (grunt) {
         },
         watch: {
             files: '<config:lint.files>',
-            tasks: 'lint qunit'
+            tasks: 'lint'
         },
         jshint: {
             options: {
@@ -69,5 +69,5 @@ module.exports = function (grunt) {
     grunt.registerTask('default', 'lint qunit concat min');
     
     // Task for travis
-    grunt.registerTask('travis', 'lint qunit concat min');
+    grunt.registerTask('travis', 'qunit');
 };
