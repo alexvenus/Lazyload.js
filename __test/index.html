@@ -16,7 +16,24 @@
     <script type="text/javascript" src="../__src/Lazyload.js"></script>
 
     <!-- The tests -->
-    <script src="tests.js"></script>    
+    <script>
+    /**
+    * Test Nr. 1
+    *
+    * Tests including and installation of Lazyload.js
+    */
+    test("included/installed test", function ()
+    {
+        //expect(2);
+        //ok(window.Lazyload, "Lazyload exists [Lazyload]");
+        //equal(typeof window.Lazyload, 'object', "Lazyload is object [Lazyload]");
+        
+        expect(1);
+        ok(true, "Test successful");
+    });
+
+    QUnit.start();
+    </script>    
 </head>
 
 <body>
@@ -26,11 +43,6 @@
     <h2 id="qunit-userAgent"></h2>
     <ol id="qunit-tests"></ol>
     <div id="qunit-fixture">test markup, will be hidden</div>
-
-    <!-- explicit call start() as a try to prevent timeout bug from PhantomJS -->
-    <script type="text/javascript">
-        QUnit.start();
-    </script>
 
 </body>
 </html>
