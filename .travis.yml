@@ -5,7 +5,7 @@ before_install:
   - phantomjs --version
   
 before_script:
-  - sudo npm install -g grunt-contrib-qunit
+  - sudo npm install -g grunt
   - grunt build
   
 script: grunt travis --verbose
