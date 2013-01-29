@@ -12,22 +12,31 @@ module.exports = function (grunt) {
                     ' Licensed <%= _.pluck(pkg.licenses, "type").join(", ") %> */'
         },
         concat: {
-            dist: {
+            build: {
                 src: ['__src/<%= pkg.name %>.js'],
                 dest: 'lib/<%= pkg.namelower %>-<%= pkg.version %>.js'
             }
         },
         min: {
-            dist: {
-                src: ['<banner:meta.banner>', '<config:concat.dist.dest>'],
+            build: {
+                src: ['<banner:meta.banner>', '<config:concat.build.dest>'],
                 dest: 'lib/<%= pkg.namelower %>-<%= pkg.version %>.min.js'
+            }
+        },  
+        uglify : {
+            mangle: {
+                except: ['Lazyload', 'Core', 'Hash', 'Parse', 'Pipe']
             }
         },
         qunit: {
             files: ['__test/index.html']
         },
         lint: {
-            files: ['grunt.js', '__test/view/**/*.js', '__src/Lazyload.js']
+            files: [
+                'grunt.js',
+                '__test/view/**/*.js',
+                '__src/*.js'
+            ]
         },
         watch: {
             files: '<config:lint.files>',
@@ -56,10 +65,7 @@ module.exports = function (grunt) {
                 maxlen: 120
             },
             globals: {
-                browser: true,
                 Lazyload: true,
-                window: true,
-                document: true,
                 ActiveXObject: true
             }
         }
@@ -68,6 +74,8 @@ module.exports = function (grunt) {
     // Task for travis
     grunt.registerTask('travis', 'qunit');
 
-    // Default task. -> uglify?
-    grunt.registerTask('build', 'lint qunit concat min');
+    // Build
+    grunt.loadNpmTasks('grunt-contrib');
+    grunt.registerTask('build', 'lint concat min');
+    grunt.registerTask('default', 'build');
 };
