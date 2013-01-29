@@ -8,4 +8,4 @@ before_script:
   - sudo npm install -g grunt
   - grunt build --verbose
   
-script: grunt travis --verbose
+script: grunt travis --verbose --force

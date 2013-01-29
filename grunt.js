@@ -5,21 +5,21 @@ module.exports = function (grunt) {
     grunt.initConfig({
         pkg: '<json:package.json>',
         meta: {
-            banner: '/*! <%= pkg.title || pkg.name %> - v<%= pkg.version %> - ' +
+            banner: '/*! <%= pkg.name %> - v<%= pkg.version %> - ' +
                     '<%= grunt.template.today("yyyy-mm-dd") %>\n' +
                     '<%= pkg.homepage ? "* " + pkg.homepage + "\n" : "" %>' +
                     '* Copyright (c) <%= grunt.template.today("yyyy") %> <%= pkg.author.name %>;' +
                     ' Licensed <%= _.pluck(pkg.licenses, "type").join(", ") %> */'
         },
         concat: {
-            build: {
-                src: ['__src/<%= pkg.name %>.js'],
+            dist: {
+                src: ['__src/<%= pkg.name %>'],
                 dest: 'lib/<%= pkg.namelower %>-<%= pkg.version %>.js'
             }
         },
         min: {
-            build: {
-                src: ['<banner:meta.banner>', '<config:concat.build.dest>'],
+            dist: {
+                src: ['<banner:meta.banner>', '<config:concat.dist.dest>'],
                 dest: 'lib/<%= pkg.namelower %>-<%= pkg.version %>.min.js'
             }
         },  
@@ -31,7 +31,7 @@ module.exports = function (grunt) {
         qunit: {
             files: ['__test/index.html'],
             options: {
-                timeout: 15000
+                timeout: 20000
             }
         },
         lint: {

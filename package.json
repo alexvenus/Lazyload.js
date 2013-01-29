@@ -1,5 +1,6 @@
 {
   "name": "Lazyload.js",
+  "namelower": "lazyload",
   "version": "0.0.4",
   "description": "The tiny + powerful loading-framework for JavaScript",
   "directories": {
