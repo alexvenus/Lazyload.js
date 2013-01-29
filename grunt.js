@@ -29,7 +29,10 @@ module.exports = function (grunt) {
             }
         },
         qunit: {
-            files: ['__test/index.html']
+            files: ['__test/index.html'],
+            options: {
+                timeout: 15000
+            }
         },
         lint: {
             files: [
@@ -75,7 +78,6 @@ module.exports = function (grunt) {
     grunt.registerTask('travis', 'qunit');
 
     // Build
-    grunt.loadNpmTasks('grunt-contrib');
     grunt.registerTask('build', 'lint concat min');
     grunt.registerTask('default', 'build');
 };
