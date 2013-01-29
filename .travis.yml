@@ -3,6 +3,11 @@ node_js:
   
 before_install:
   - phantomjs --version
+  - npm --version
+  - wget https://phantomjs.googlecode.com/files/phantomjs-1.4.1-linux-x86-dynamic.tar.gz
+  - tar -xf phantomjs-1.4.1-linux-x86-dynamic.tar.gz
+  - sudo rm -rf /usr/local/phantomjs
+  - sudo mv phantomjs-1.4.1-linux-x86-dynamic /usr/local/phantomjs  
   
 before_script:
   - sudo npm install -g grunt
