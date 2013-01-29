@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <title>Lazyload.js Test Suite</title>
+
     <!-- styles of qunit -->
     <link rel="stylesheet" href="vendor/QUnit/qunit-1.10.0.css" type="text/css" media="screen" />
     
@@ -15,8 +17,19 @@
     <!-- Source and test files go here -->
     <script type="text/javascript" src="../__src/Lazyload.js"></script>
 
+</head>
+
+<body>
+    <h1 id="qunit-header">Lazyload.js Test Suite</h1>
+    <h2 id="qunit-banner"></h2>
+    <div id="qunit-testrunner-toolbar"></div>
+    <h2 id="qunit-userAgent"></h2>
+
+    <ol id="qunit-tests"></ol>
+
     <!-- The tests -->
     <script>
+
     /**
     * Test Nr. 1
     *
@@ -32,17 +45,9 @@
         ok(true, "Test successful");
     });
 
+
     QUnit.start();
     </script>    
-</head>
-
-<body>
-    <h1 id="qunit-header"></h1>
-    <h2 id="qunit-banner"></h2>
-    <div id="qunit-testrunner-toolbar"></div>
-    <h2 id="qunit-userAgent"></h2>
-    <ol id="qunit-tests"></ol>
-    <div id="qunit-fixture">test markup, will be hidden</div>
 
 </body>
 </html>

@@ -1,13 +1,49 @@
 {
   "name": "Lazyload.js",
   "version": "0.0.4",
-  "engines": {
-    "node": ">= 0.8"
+  "description": "The tiny + powerful loading-framework for JavaScript",
+  "directories": {
+    "test": "__test"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "grunt": "0.3.17",
+    "grunt-contrib": "0.3.0"
   },
   "scripts": {
     "test": "grunt qunit"
   },
-  "devDependencies": {
-    "grunt": "0.3.17"
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/clickalicious/Lazyload.js.git"
+  },
+  "bugs": {
+    "url": "https://github.com/clickalicious/Lazyload.js/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "http://clickalicious.github.com/Lazyload.js/blob/master/LICENSE-MIT"
+    },
+    {
+      "type": "New BSD",
+      "url": "http://clickalicious.github.com/Lazyload.js/blob/master/LICENSE-BSD"
+    }
+  ],
+  "keywords": [
+    "JavaScript",
+    "deps",
+    "dependencies",
+    "loader",
+    "localStorage"
+  ],
+  "author": {
+    "name": "Benjamin Carl",
+    "email": "opensource@clickalicious.de",
+    "url": "https://github.com/clickalicious"
+  },
+  "homepage": "http://clickalicious.github.com/Lazyload.js/",
+  "engines": {
+    "node": ">= 0.8"
   }
 }

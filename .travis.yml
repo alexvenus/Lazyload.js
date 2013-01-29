@@ -6,6 +6,6 @@ before_install:
   
 before_script:
   - sudo npm install -g grunt
-  - grunt build
+  - grunt build --verbose
   
 script: grunt travis --verbose
