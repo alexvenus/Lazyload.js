@@ -12,6 +12,20 @@ should look either here [github project page](http://clickalicious.github.com/La
 
 ## Latest changes
 
+**0.0.5**
+
+- Fixed a bug which led to a break when parsing "@properties" or
+  "@configuration" from annotations.
+
+- Added "basket.js - a simple script loader that caches scripts" (0.4.0)
+  and "RSVP.js a tiny Promise implementation [required by basket.js]" (1.x)
+  to the build.
+
+- Upgraded grunt to 0.0.4 style (Config/Build directives).
+
+- Fixed typos, coding standard violations and linted the whole source.
+
+- Added tag 0.0.5 to git repo source.
 
 **0.0.4**
 
@@ -24,8 +38,8 @@ should look either here [github project page](http://clickalicious.github.com/La
 - Made loading of external/remote resources possible. Remote resources
   can be treated in the same way like local resources. The only
   exception is that external resources currently can't have any
-  dependencies defined by @resources tag within file cause i have 
-  currently no access to the source of those resources. But i've found 
+  dependencies defined by @resources tag within file cause i have
+  currently no access to the source of those resources. But i've found
   a way to load the source from external resources and get access to it
   too.
 
@@ -43,12 +57,10 @@ should look either here [github project page](http://clickalicious.github.com/La
 
 - Added complete documentation in JSDoc(3) format to folder
   [/__doc](https://github.com/clickalicious/Lazyload.js/blob/master/__doc/)
-  have a look at the documentation and the source. Everythings so fine you 
+  have a look at the documentation and the source. Everythings so fine you
   will like to work with
 
 - added this changelog to README.md
 
 
 For more details view [CHANGELOG.md](https://github.com/clickalicious/Lazyload.js/blob/master/CHANGELOG.md)
-
-

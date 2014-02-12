@@ -1,7 +1,7 @@
 /**
- * @resources view/static/script/js/bar.js
- * @configuration {configuration: 'override'}
- * @property {property: 'override'}
+ * @resources __test/view/static/script/js/bar.js
+ * @configuration {"parse": true}
+ * @properties {"caching": true}
  */
 var Foo = function Foo(refBar) {
 

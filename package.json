@@ -1,15 +1,23 @@
 {
   "name": "Lazyload.js",
   "namelower": "lazyload",
-  "version": "0.0.4",
-  "description": "The tiny + powerful loading-framework for JavaScript",
+  "version": "0.0.5",
+  "description": "It's just about loading files smart and easily!",
   "directories": {
     "test": "__test"
   },
   "dependencies": {},
   "devDependencies": {
-    "grunt": "0.3.17",
-    "grunt-contrib": "0.3.0"
+    "grunt": "~0.4.2",
+    "grunt-contrib-jshint": "~0.8.0",
+    "grunt-contrib-nodeunit": "~0.3.0",
+    "grunt-contrib-uglify": "~0.2.2",
+    "grunt-contrib-qunit": "~0.4.0",
+    "grunt-contrib-concat": "~0.3.0",
+    "grunt-contrib-watch": "~0.5.3",
+    "jsdoc": "~3.3.0-alpha4",
+    "grunt-jsdoc": "~0.5.1",
+    "grunt-jsdoc-plugin": "~0.1.4"
   },
   "scripts": {
     "test": "grunt qunit"
@@ -45,6 +53,6 @@
   },
   "homepage": "http://clickalicious.github.com/Lazyload.js/",
   "engines": {
-    "node": ">= 0.8"
+    "node": ">= 0.10"
   }
 }

@@ -34,7 +34,7 @@
  * @file Lazyload.js - Contains all modules of Lazyload.js
  * @author    Benjamin Carl <opensource@clickalicious.de>
  * @copyright Copyright 2011 - 2012 clickalicious UG - Benjamin Carl
- * @version   0.0.4
+ * @version   0.0.5
  *
  * @license   MIT License http://en.wikipedia.org/wiki/MIT_License
  *            New BSD license http://www.opensource.org/licenses/BSD-3-Clause
@@ -56,6 +56,8 @@
  *        }
  *    );
  */
+/*global Lazyload:false */
+/*global ActiveXObject:false */
 /*jslint bitwise: true */
 (function (window, document) {
     'use strict';
@@ -213,14 +215,15 @@
                  */
                 var _configuration = {
                     dependencyIdentifier: [                              // which identifier(s) should be parsed
-                        'import', 'resources', 'configuration', 'property'
+                        'import', 'resources', 'configuration', 'properties'
                     ],
                     hash: {
-                        algorithm: 'Simple'
+                        algorithm: 'Djb2'
                     },
+                    loader:               window.basket,                 // Set basket.js as default loader => caching!
                     extension:            null,                          // Default extension of resource (eg. .js|.css)
                     translate:            '/',                           // Delimiter used for parsing path from class
-                    parse:                false,                         // Parse local resources for dependencies?
+                    parse:                true,                          // Parse local resources for dependencies?
                     caching:              true,                          // Cache fetched resources?
                     timeout:              0,                             // Timeout for XHR (0 = unlimited/no timeout)
                     pipesMax:             0,                             // Maximum number of parallel pipes allowed
@@ -419,11 +422,11 @@
                                 break;
 
                             case 'configuration':
-                                configuration = eval(dependencies[i][1]);
+                                configuration = eval('(' + dependencies[i][1].toString() + ')');
                                 break;
 
                             case 'properties':
-                                properties = eval(dependencies[i][1]);
+                                properties = eval('(' + dependencies[i][1].toString() + ')');
                                 break;
                             }
                         }
@@ -608,9 +611,9 @@
                 var _canHasDependencies = function (lazyObject)
                 {
                     return (
-                        lazyObject.type   !== 'style' &&
-                        _configuration.parse     === true  &&
-                        lazyObject.parsed === false
+                        lazyObject.type      === 'script' &&
+                        _configuration.parse === true     &&
+                        lazyObject.parsed    === false
                     );
                 };
 
@@ -701,8 +704,8 @@
                 var _fetchResource = function (lazyObject)
                 {
                     // loader configured?
-                    if (_configuration.loader      !== undefined &&
-                        window.localStorage !== undefined &&
+                    if (_configuration.loader !== undefined &&
+                        window.localStorage   !== undefined &&
                         !_isRemoteResource(lazyObject.uri)
                     ) {
                         // patch = currently easiest way to transfer it to callback without hassle
@@ -930,7 +933,14 @@
                  */
                 var _require = function ()
                 {
-                    var set         = _queue.pop();                // get next element from stack
+                    var set = _queue.pop();                // get next element from stack
+
+                    if (set['configuration'] !== undefined) {
+                        for (var key in set.configuration) {
+                            _configuration[key] = set.configuration[key];
+                        }
+                    }
+
                     var lazyObject,
                         resources   = set.resources.split(','),    // get resources from callstack
                         i;
@@ -1077,6 +1087,7 @@
                     if (dependencies.resources.length > 0) {
                         // inject the parent-uid! important for handling nested set(s)
                         dependencies.properties.parent = lazyObject.uid;
+
                         return dependencies;
                     }
 
@@ -1495,7 +1506,7 @@
                     // tmp transformation array
                     var tmp,
                         annotations = [],
-                        matches     = buffer.match(/(@)[\w\d]+[\s]+[\w\d\/.:,]+/g);
+                        matches     = buffer.match(/(@)[\w\d]+[\s]+[{}\w\d\/.\:,'"\s]+/g);
 
                     // if we found dependency patterns
                     if (matches && matches.length) {
@@ -1503,19 +1514,28 @@
 
                         // pre-process them
                         for (i = 0; i < matches.length; ++i) {
-                            // TODO: ??? whats this
-                            tmp = matches[i].split(' ');
-                            tmp[0] = tmp[0].replace('@', '');
+                            var splitByPosition = matches[i].indexOf(' ');
 
-                            if (!reduce || _contains(reduce, tmp[0])) {
-                                // is a list (,) ?
-                                if (tmp[1].indexOf(',') !== -1) {
-                                    tmp[1] = tmp[1].split(',');
-                                } else {
-                                    tmp[1] = [tmp[1]];
+                            if (splitByPosition !== -1) {
+                                var key   = matches[i].substr(0, splitByPosition).replace('@', '');
+                                var value = matches[i].substr(splitByPosition+1);
+
+                                // check if attribute (key) is a allowed one:
+                                if (!reduce || _contains(reduce, key)) {
+                                    // is a list (,) ?
+                                    if (value.indexOf(',') !== -1) {
+                                        value = value.split(',');
+                                    } else {
+                                        value = [value];
+                                    }
+
+                                    tmp = [
+                                        key,
+                                        value
+                                    ];
+
+                                    annotations.push(tmp);
                                 }
-
-                                annotations.push(tmp);
                             }
                         }
                     }
