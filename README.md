@@ -1,7 +1,7 @@
 # Lazyload.js #
 [![Build Status](https://travis-ci.org/clickalicious/Lazyload.js.png?branch=master)](https://travis-ci.org/clickalicious/Lazyload.js)
 
-<a href="http://ctt.ec/UAkNV" target="_blank">
+<a href="https://twitter.com/intent/tweet?text=Check+out+Lazyload.js+-+The+tiny+and+powerful+loading-framework+for+JavaScript+%40phpfluesterer+%23clickalicious+%23js+http%3A%2F%2Fctt.ec%2FxbpSC%2B&source=clicktotweet" target="_blank">
   <img src="http://jpillora.com/github-twitter-button/img/tweet.png"></img>
 </a>
 
