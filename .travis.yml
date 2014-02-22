@@ -6,8 +6,7 @@ before_install:
   - npm --version
 
 before_script:
-  - npm install
-  - npm install -g grunt-cli
-  - npm install -g grunt-init
+  - npm install grunt
+  - npm install grunt-cli
 
 script: grunt travis --verbose --force
