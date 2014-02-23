@@ -122,7 +122,7 @@ module.exports = function (grunt) {
     );
 
     // TRAVIS -> This is wwhat Travis-Ci should do
-    grunt.registerTask('travis', ['qunit:development']);
+    grunt.registerTask('travis', ['test']);
 
     // DEFAULT -> for all those who don't know what to do.
     grunt.registerTask('default', ['build']);
